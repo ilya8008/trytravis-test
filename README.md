@@ -24,3 +24,32 @@ AddKeysToAgent yes
 ProxyJump ilya8008@35.205.99.171
 ```
 Подключаемся при помощи команды ssh someinternalhost
+
+## Домашнее задание 4
+
+### Данные для подключения
+
+testapp_IP = 35.240.32.147 
+testapp_port = 9292
+
+### Команда для создания инстанса с использованием startup script
+
+```
+gcloud compute instances create reddit-app\
+  --boot-disk-size=10GB \  
+  --image-family ubuntu-1604-lts \
+  --image-project=ubuntu-os-cloud \
+  --machine-type=g1-small \
+  --tags puma-server \
+  --restart-on-failure \
+  --metadata-from-file startup-script=startup_script.sh
+```
+
+### Команда для создания правила firewall
+
+```
+gcloud compute firewall-rules create default-puma-server\
+  --allow tcp:9292 \
+ --source-ranges 0.0.0.0/0 \
+ --target-tags puma-server
+```
