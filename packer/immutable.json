@@ -1,0 +1,52 @@
+{
+    "variables": 
+        {
+            "project_id": "",
+            "machine_type": "f1-micro",
+            "image_description": "Empty",
+            "tags": "",
+            "network": "default",
+            "disk_size": "10",
+            "disk_type": "pd-standard",
+            "ssh_username": ""
+        },
+    "builders": [
+        {
+            "type": "googlecompute",
+            "project_id": "{{user `project_id`}}",
+            "image_name": "reddit-full-{{timestamp}}",
+            "image_family": "reddit-full",
+            "source_image_family": "reddit-base",
+            "zone": "europe-west1-b",
+            "ssh_username": "{{user `ssh_username`}}",
+            "machine_type": "{{user `machine_type`}}",
+            "image_description": "{{user `image_description`}}",
+            "tags": "{{user `tags`}}",
+            "network": "{{user `network`}}",
+            "disk_size": "{{user `disk_size`}}",
+            "disk_type": "{{user `disk_type`}}"
+  
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "files/install_app.sh"
+        },
+        {
+            "type": "file",
+            "source": "files/puma.service",
+            "destination": "/tmp/puma.service"
+        },
+        {
+            "type": "shell",
+            "inline": "sudo mv /tmp/puma.service /etc/systemd/system/puma.service"
+        },
+        {
+            "type": "shell",
+            "inline": ["sudo systemctl daemon-reload",
+                       "sudo systemctl enable puma.service"]
+        }
+
+    ]
+}
