@@ -101,7 +101,7 @@ gcloud compute firewall-rules create default-puma-server\
  - Настроил хранение state фалов для stage и prod в gcs, проверил, что terraform использует именно gcs. Проверил работу блокировки: при одновременном запуске terraform из разных директорий получил ошибку.
  - Настроил provision приложения. Настроил передачу адреса (из внутренней сети, иначе правило firewall не работает с тегом) в unit-файл puma.service. Проверил работу приложения (в т.ч. соединение с отдельным инстансом БД).
 
-## Домашнее задание 7
+## Домашнее задание 8
 
 ### Сделано:
 
@@ -109,7 +109,7 @@ gcloud compute firewall-rules create default-puma-server\
  - Создал inventory в различных форматах, ansible.cfg
  - Проверил выполнение команд с помощью модулей command и shell.
  - Проверил работу модулей systemd,service и git.
- - Написал playbook. После удаления репозитория с помощью модуля command и повторного выполения playbook статус задания изменился на changed, т.к. ansible повторно сделал clone репозитория.  
+ - Написал playbook. После удаления репозитория с помощью модуля command и повторного выполнения playbook статус задания изменился на changed, т.к. ansible повторно сделал clone репозитория.  
 ```
 TASK [Clone repo]
 changed: [appserver]
