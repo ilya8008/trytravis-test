@@ -5,9 +5,10 @@ provider "google" {
 }
 
 module "storage-bucket" {
-  source  = "SweetOps/storage-bucket/google"
-  version = "0.1.1"
-  name    = ["reddit-tf-state-stage", "reddit-tf-state-prod"]
+  source        = "SweetOps/storage-bucket/google"
+  version       = "0.1.1"
+  name          = ["reddit-tf-state-stage", "reddit-tf-state-prod"]
+  force_destroy = true
 }
 
 output storage-bucket_url {
