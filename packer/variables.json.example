@@ -1,0 +1,11 @@
+{
+  "project_id": "id",
+  "source_image_family": "ubuntu-1604-lts",  
+  "machine_type": "f1-micro",
+  "image_description": "reddit-base",
+  "tags": "test",
+  "network": "default",
+  "disk_size": "10",
+  "disk_type": "pd-standard",
+  "ssh_username": "user"
+}
