@@ -1,9 +1,6 @@
 dist: trusty
 sudo: required
 language: bash
-branches:
-  only:
-  - master
 before_install:
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-09/run.sh |
   bash
@@ -34,7 +31,7 @@ before_install:
 - ../../util/terraform validate -check-variables=false
 - ../../util/tflint
 - cd ../../ansible
-- ansible-lint playbooks/*.yml
+- ansible-lint --exclude=roles/jdauphant.nginx playbooks/*.yml
 notifications:
   slack:
     rooms:
