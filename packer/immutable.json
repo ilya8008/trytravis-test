@@ -31,11 +31,11 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "files/install_app.sh"
+            "script": "packer/files/install_app.sh"
         },
         {
             "type": "file",
-            "source": "files/puma.service",
+            "source": "packer/files/puma.service",
             "destination": "/tmp/puma.service"
         },
         {
