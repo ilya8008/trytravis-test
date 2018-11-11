@@ -156,5 +156,5 @@ appserver                  : ok=2    changed=1    unreachable=0    failed=0
   - terraform validate
   - tflint
   - ansible-lint
-- Для отладки настроил и использовал утилиту trytravis.
+- Для отладки, настроил и использовал утилиту trytravis.
 - Добавил в README.md бейджи со статусами билдов веток master и ansible-3.
