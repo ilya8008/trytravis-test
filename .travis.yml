@@ -1,10 +1,40 @@
 dist: trusty
 sudo: required
 language: bash
+branches:
+  only:
+  - ansible-3
 before_install:
 #- curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-09/run.sh |
 #  bash
-- echo "Test" 
+- mkdir util
+- cd util
+- wget https://releases.hashicorp.com/packer/1.3.2/packer_1.3.2_linux_386.zip
+- wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_386.zip
+- wget https://github.com/wata727/tflint/releases/download/v0.7.2/tflint_linux_386.zip
+- unzip packer_1.3.2_linux_386.zip
+- unzip terraform_0.11.10_linux_386.zip
+- unzip tflint_linux_386.zip
+- sudo pip2 install ansible-lint
+- cd ..
+- util/packer validate -var-file=packer/variables.json.example packer/app.json
+- util/packer validate -var-file=packer/variables.json.example packer/db.json
+- util/packer validate -var-file=packer/variables.json.example packer/immutable.json
+- util/packer validate -var-file=packer/variables.json.example packer/ubuntu16.json
+- cd terraform/stage
+- rm backend.tf
+- mv terraform.tfvars.example terraform.tfvars
+- ../../util/terraform init
+- ../../util/terraform validate -check-variables=false
+- ../../util/tflint
+- cd ../prod
+- rm backend.tf
+- mv terraform.tfvars.example terraform.tfvars
+- ../../util/terraform init
+- ../../util/terraform validate -check-variables=false
+- ../../util/tflint
+- cd ../../ansible
+- ansible-lint playbooks/*.yml
 notifications:
   slack:
     rooms:
