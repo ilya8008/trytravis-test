@@ -1,7 +1,7 @@
 # ilya8008_infra
 ilya8008 Infra repository
 
-## Домашнее задание 3
+[![Build Status](https://travis-ci.org/Otus-DevOps-2018-09/ilya8008_infra.svg?branch=master)](https://travis-ci.org/Otus-DevOps-2018-09/ilya8008_infra)
 
 ### Данные для подключения
 
@@ -130,4 +130,3 @@ appserver                  : ok=2    changed=1    unreachable=0    failed=0
  - Исследовал работу с dynamic inventory. Для получения json файла выбрал terraform-inventory. Т.к. у выбранной утилиты наблюдаются проблемы с remote backend, написал скрипт gce-invent.sh и прописал его в опции inventory в ansible.cfg. В app.yml я использую переменную db_internal_ip из dynamic inventory для записи в шаблон db_config.
  - Заменил провижининг в packer на плейбуки ansible и создал новые образы.
  - Проверил правильность создания инстансов и работы приложения со всеми изменениями.
-[![Build Status](https://travis-ci.org/ilya8008/trytravis-test.svg?branch=ansible-3)](https://travis-ci.org/ilya8008/trytravis-test)
