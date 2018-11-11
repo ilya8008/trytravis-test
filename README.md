@@ -1,7 +1,9 @@
 # ilya8008_infra
 ilya8008 Infra repository
 
-[![Build Status](https://travis-ci.org/Otus-DevOps-2018-09/ilya8008_infra.svg?branch=master)](https://travis-ci.org/Otus-DevOps-2018-09/ilya8008_infra)
+[![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra)
+
+## Домашнее задание 3
 
 ### Данные для подключения
 
