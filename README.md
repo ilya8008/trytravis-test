@@ -1,7 +1,9 @@
 # ilya8008_infra
 ilya8008 Infra repository
 
-[![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra)
+Build status:
+master branch: [![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra)
+ansible-3 branch: [![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra.svg?branch=ansible-3)](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra)
 
 ## Домашнее задание 3
 
@@ -132,3 +134,26 @@ appserver                  : ok=2    changed=1    unreachable=0    failed=0
  - Исследовал работу с dynamic inventory. Для получения json файла выбрал terraform-inventory. Т.к. у выбранной утилиты наблюдаются проблемы с remote backend, написал скрипт gce-invent.sh и прописал его в опции inventory в ansible.cfg. В app.yml я использую переменную db_internal_ip из dynamic inventory для записи в шаблон db_config.
  - Заменил провижининг в packer на плейбуки ansible и создал новые образы.
  - Проверил правильность создания инстансов и работы приложения со всеми изменениями.
+
+## Домашнее задание 10
+
+### Сделано:
+
+- Создал роль для базы данных.
+- Создал роль для приложения.
+- Добавил вызов ролей в ранее созданные плейбуки и проверил их работу.
+- Создал настройки окружений для stage и prod и определил окружение stage по умолчанию.
+- Определил переменные групп хостов для окружений.
+- Добавил таски для вывода информации о текущем окружении.
+- Организовал директорию ansible согласно best practices.
+- Добавил вывод изменений в ansible.cfg.
+- Проверил работу приложения в окружениях stage и prod со всеми внесенными изменениями.
+- Использовал community роль jdauphant.nginx для настройки обратного прокси, добавил правило firewall и проверил доступность приложения на 80 порту.
+- Изучил работу с Ansible Vault и проверил работу плейбука для добавления пользователей с зашифрованными файлами.
+- Настроил скрипты для dynamic inventory для работы c окружениями stage и prod
+- Настроил TravisCI для выполнения следующих действий:
+  - packer validate
+  - terraform validate
+  - tflint
+  - ansible-lint
+- Добавил в README.md бейджи сос статусами билдов веток master и ansible-3.
