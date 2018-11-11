@@ -3,7 +3,6 @@ ilya8008 Infra repository
 
 Build status:
 master branch: [![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra)
-ansible-3 branch: [![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra.svg?branch=ansible-3)](https://travis-ci.com/Otus-DevOps-2018-09/ilya8008_infra)
 
 ## Домашнее задание 3
 
@@ -157,4 +156,4 @@ appserver                  : ok=2    changed=1    unreachable=0    failed=0
   - tflint
   - ansible-lint
 - Для отладки, настроил и использовал утилиту trytravis.
-- Добавил в README.md бейджи со статусами билдов веток master и ansible-3.
+- Добавил в README.md бейдж со статусом билда ветки master.
