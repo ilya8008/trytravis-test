@@ -2,6 +2,6 @@
 - name: Install ruby and bundler
   hosts: all
   become: true
-  
+
   roles:
     - app
