@@ -1,0 +1,5 @@
+---
+# defaults file for app
+db_internal_ip: 127.0.0.1
+env: local
+deploy_user: appuser

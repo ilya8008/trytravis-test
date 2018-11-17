@@ -1,0 +1,10 @@
+{
+    "app": {
+        "children": ["appserver"]
+    },
+    "db": {
+        "children": ["dbserver"]
+    },
+    "appserver": ["104.199.21.23"],
+    "dbserver": ["35.187.66.10"]
+}
